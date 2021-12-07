@@ -24,18 +24,16 @@ def load_data(fname):
 def main():
     fname = "input.txt"
     data = load_data(fname)
-    retval = sum(data)
+    retval = sum(data)**2
     dest = 0
 
     for destination in range(max(data)+ 1):
         current = 0
         for i in data:
-            print(f'destination: {destination} | i: {i} | current: {current} | abs(i-destination): {abs(i-destination)}')
-            current += abs(i - destination)
-
-        print()
-        print(f'retval: {retval} | current: {current} | dest: {dest} | destination: { destination}')
-        print()
+            to_add = 1
+            for j in range(abs(i - dest)):
+                current += to_add
+                to_add += 1
         if current < retval:
             retval = current
             dest = destination + 1
